@@ -25,7 +25,6 @@ function validarEmail(e){
         cantidad:"",
         fecha:"",
     }
-    caducados[e.target.id]=e.target.value;
     console.log(caducados);
     productosCaducados=[...productosCaducados,caducados];
     console.log(productosCaducados);
