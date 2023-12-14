@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caducados</title>
+</head>
+<body>
+    <h1>Caducados</h1>
+
+    <form id="formulario" class="formulario">
+        <fieldset>
+            <div class="campo" id="campo">
+                <label for="producto">Producto</label>
+                <input type="text" id="producto" placeholder="producto">
+            </div>
+
+            <div class="campo" id="campo">
+                <label for="codigo">Codigo</label>
+                <input type="number" id="codigo" placeholder="sku">
+            </div>
+
+            <div class="campo" id="campo">
+                <label for="cantidad">Cantidad</label>
+                <input type="number" id="cantidad" placeholder="cantidad">
+            </div>
+
+            <div class="campo" id="campo">
+                <label for="fecha">Fecha</label>
+                <input type="date" id="fecha" placeholder="fecha">
+            </div>
+
+            <input type="submit" value="Enviar">
+        </fieldset>
+    </form>
+
+    <div class="lista" id="lista">
+        
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
