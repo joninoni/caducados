@@ -26,7 +26,13 @@ function validarEmail(e){
         return
     }
     caducados[e.target.id]=e.target.value;
-    console.log(caducados);
+    
+    comprobarCaducados();
 }
-
-
+function comprobarCaducados(){
+    if(Object.values(caducados).includes("")){
+        btnEnviar.disabled=true
+        return
+    }
+        btnEnviar.disabled=false
+}
