@@ -11,13 +11,22 @@ producto.addEventListener("blur",validarEmail);
 codigo.addEventListener("blur",validarEmail);
 cantidad.addEventListener("blur",validarEmail);
 fecha.addEventListener("blur",validarEmail);
-formulario.addEventListener("submit",crearHtml);
+// formulario.addEventListener("submit",crearHtml);
+
+const caducados={
+    producto:"",
+    codigo:"",
+    cantidad:"",
+    fecha:"",
+}
 // Funciones
 function validarEmail(e){
     if(e.target.value.trim()===""){
         console.log("no puede haber cmpos vacios");
         return
-    }   
+    }
+    caducados[e.target.id]=e.target.value;
+    console.log(caducados);
 }
 
 
