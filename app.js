@@ -6,6 +6,8 @@ const cantidad=document.querySelector("#cantidad");
 const fecha=document.querySelector("#fecha");
 const btnEnviar=document.querySelector(`input[type="submit"]`);
 const lista=document.querySelector("#lista");
+
+let productosCaducados=[];
 // Eventos
 producto.addEventListener("blur",validarEmail);
 codigo.addEventListener("blur",validarEmail);
@@ -26,7 +28,9 @@ function validarEmail(e){
         return
     }
     caducados[e.target.id]=e.target.value;
-    
+    productosCaducados=[...productosCaducados,caducados]
+    console.log(caducados);
+    console.log(productosCaducados);
     comprobarCaducados();
 }
 function comprobarCaducados(){
