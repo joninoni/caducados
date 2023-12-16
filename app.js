@@ -42,9 +42,15 @@ function crearHtml(){
 
     if(productosCaducados.length > 0){
         productosCaducados.forEach( caducado => {
+            const btnEliminar=document.createElement("a");
+            btnEliminar.textContent="X";
+            btnEliminar.onclick = ()=>{
+                eliminarCaducado(caducado.codigo);
+            }
             const parrafo = document.createElement('p');
             parrafo.textContent=`${caducado.producto} ${caducado.codigo} ${caducado.cantidad}
             ${caducado.fecha}`;
+            parrafo.appendChild(btnEliminar);
             lista.appendChild(parrafo);
         })
     }
@@ -52,6 +58,10 @@ function crearHtml(){
 }
 function sincronizarHtml(){
     localStorage.setItem("caducados",JSON.stringify(productosCaducados));
+}
+function eliminarCaducado(codigo){
+    productosCaducados=productosCaducados.filter( caducado => caducado.codigo !==codigo);
+    crearHtml();
 }
 function limpiarHtml(){
     while(lista.firstChild){
