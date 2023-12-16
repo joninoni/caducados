@@ -28,5 +28,15 @@ function agragarCaducado(e){
     }
     productosCaducados=[...productosCaducados,caducado];
     // console.log(productosCaducados);
-    // crearHtml();
+    crearHtml();
+}
+function crearHtml(){
+    if(productosCaducados.length > 0){
+        productosCaducados.forEach( caducado => {
+            const parrafo = document.createElement('p');
+            parrafo.textContent=`${caducado.producto} ${caducado.codigo} ${caducado.cantidad}
+            ${caducado.fecha}`;
+            lista.appendChild(parrafo);
+        })
+    }
 }
