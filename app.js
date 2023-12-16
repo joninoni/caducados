@@ -31,6 +31,9 @@ function agragarCaducado(e){
     crearHtml();
 }
 function crearHtml(){
+
+    limpiarHtml();
+
     if(productosCaducados.length > 0){
         productosCaducados.forEach( caducado => {
             const parrafo = document.createElement('p');
@@ -38,5 +41,11 @@ function crearHtml(){
             ${caducado.fecha}`;
             lista.appendChild(parrafo);
         })
+    }
+}
+
+function limpiarHtml(){
+    while(lista.firstChild){
+        lista.removeChild(lista.firstChild);
     }
 }
