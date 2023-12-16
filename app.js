@@ -7,6 +7,11 @@ let productosCaducados=[];
 listaEventos();
 function listaEventos(){
     formulario.addEventListener("submit",agragarCaducado);
+
+    document.addEventListener("DOMContentLoaded",()=>{
+        productosCaducados=JSON.parse(localStorage.getItem("caducados")) || [];
+        crearHtml();
+    })
 }
 // Funciones
 function agragarCaducado(e){
@@ -29,6 +34,7 @@ function agragarCaducado(e){
     productosCaducados=[...productosCaducados,caducado];
     // console.log(productosCaducados);
     crearHtml();
+    formulario.reset();
 }
 function crearHtml(){
 
@@ -42,8 +48,11 @@ function crearHtml(){
             lista.appendChild(parrafo);
         })
     }
+    sincronizarHtml();
 }
-
+function sincronizarHtml(){
+    localStorage.setItem("caducados",JSON.stringify(productosCaducados));
+}
 function limpiarHtml(){
     while(lista.firstChild){
         lista.removeChild(lista.firstChild);
